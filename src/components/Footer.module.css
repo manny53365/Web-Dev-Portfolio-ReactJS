@@ -1,0 +1,23 @@
+.footer {
+    background-color: #2d3436;
+    color: #dfe6e9;
+    text-align: center;
+    height: 10%;
+}
+
+.links-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.links {
+    margin: 0 15px;
+    padding: 5px;
+    font-size: 1.5rem;
+}
+
+.copyright {
+    font-size: 0.75rem;
+}
