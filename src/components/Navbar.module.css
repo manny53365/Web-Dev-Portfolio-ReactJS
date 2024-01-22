@@ -17,3 +17,9 @@ a {
     padding-top: 10px;
     margin: 0 15px;
 }
+
+.active {
+    text-decoration: underline;
+    background-color: white;
+    color: #2d3436;
+}
