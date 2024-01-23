@@ -1,0 +1,7 @@
+.project {
+    display: inherit;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+    max-width: 345px;
+}

@@ -3,6 +3,9 @@
     color: #dfe6e9;
     text-align: center;
     height: 10%;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
 
 .links-container {

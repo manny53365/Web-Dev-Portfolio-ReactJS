@@ -1,0 +1,16 @@
+.projects-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* .project {
+    display: inherit;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 30%;
+} */
