@@ -6,6 +6,7 @@ import Home from './pages/home/Home';
 import About from './pages/about/About';
 import Experience from './pages/experience/Experience';
 import Projects from './pages/projects/Projects';
+import Login from './pages/login/Login';
 
 import './App.css';
 
@@ -19,6 +20,7 @@ function App() {
           <Route path='/about' element={<About/>}/>
           <Route path='/experience' element={<Experience/>}/>
           <Route path='/projects' element={<Projects/>}/>
+          <Route path='/login' element={<Login/>}/>
         </Routes>
         <Footer />
       </BrowserRouter>
