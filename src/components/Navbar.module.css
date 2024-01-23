@@ -22,4 +22,5 @@ a {
     text-decoration: underline;
     background-color: white;
     color: #2d3436;
+    border-radius: 5px;
 }
