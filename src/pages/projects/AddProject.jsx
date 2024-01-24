@@ -13,7 +13,7 @@ export default function AddProject() {
   const [repoLink, setRepoLink] = useState('');
   const [projectThumbnail, setProjectThumbnail] = useState(null);
   const [thumbnailError, setThumbnailError] = useState('');
-  const { addDocument } = useFirestore('projects');
+  const { addDocument, response } = useFirestore('projects');
   const navigate = useNavigate();
 
   const handleFileChange = event => {
@@ -28,8 +28,8 @@ export default function AddProject() {
         setThumbnailError('Selected file must be an image');
         return;
     };
-    if (selectedImg.size > 500000){
-        setThumbnailError('Image file size must be less than 500kb');
+    if (selectedImg.size > 5000000){
+        setThumbnailError('Image file size must be less than 5MB');
         return;
     };
 
@@ -46,7 +46,7 @@ export default function AddProject() {
       repoLink,
       projectThumbnail
     });
-    navigate('/');
+    navigate('/projects');
 };
 
   return (
@@ -58,7 +58,7 @@ export default function AddProject() {
         <TextField label="Description" multiline type='text' required={true} value={description} rows={4}
         onChange={event => setDescription(event.target.value)}
         />
-        <TextField label="Live website link" variant="outlined" type='text' required={true} value={siteLink}
+        <TextField label="Live website link" variant="outlined" type='text' value={siteLink}
         onChange={event => setSiteLink(event.target.value)}
         />
         <TextField label="Github repo link" variant="outlined" type='text' value={repoLink}
@@ -67,7 +67,8 @@ export default function AddProject() {
         <InputLabel>Upload your project thumbnail:</InputLabel>
         <Input type='file' required={true} onChange={handleFileChange} />
         {thumbnailError && <div className='error'>{thumbnailError}</div>}
-        {<Button variant="outlined" type='submit'>Add Project</Button>}
+        {response.isPending && <Button variant="outlined" type='submit' disabled >Adding Project...</Button>}
+        {!response.isPending && <Button variant="outlined" type='submit'>Add Project</Button>}
     </Box>
   )
 };
