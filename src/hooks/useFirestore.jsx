@@ -1,5 +1,7 @@
 import { useReducer, useEffect, useState } from "react";
-import { db } from "../firebase/config";
+import { db, storage } from "../firebase/config";
+import { collection, addDoc } from 'firebase/firestore';
+import  {ref  as imgRef, uploadBytes, getDownloadURL} from 'firebase/storage';
 
 let initialState = {
   document: null,
@@ -25,11 +27,11 @@ const firestoreReducer = (state, action) => {
   };
 };
 
-export const useFirestore = (collection) => {
+export const useFirestore = (dbCollection) => {
   const [response, dispatch] = useReducer(firestoreReducer, initialState);
   const [isCancelled, setIsCancelled] = useState(false);
 
-  const ref = db.collection(collection);
+  const ref = collection(db,dbCollection);
 
   const dispatchIfNotCancelled = (action) => {
     if (!isCancelled) {
@@ -42,7 +44,11 @@ export const useFirestore = (collection) => {
 
     try {
       // const createdAt = timestamp.fromDate(new Date());
-      const addedDocument = await ref.add({ ...doc });
+      const uploadPath = `thumbnails/${doc.projectName}/${doc.projectThumbnail.name}`;
+      const img = imgRef(storage, uploadPath);
+      await uploadBytes(img, doc.projectThumbnail);
+      const imgURL = await getDownloadURL(img);
+      const addedDocument = await addDoc(ref,{ ...doc, projectThumbnail: imgURL });
       dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
     }
     catch (err) {

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Box, TextField, Button, Input, InputLabel } from '@mui/material';
+import { useFirestore } from '../../hooks/useFirestore';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './AddProject.module.css';
 
@@ -11,6 +13,8 @@ export default function AddProject() {
   const [repoLink, setRepoLink] = useState('');
   const [projectThumbnail, setProjectThumbnail] = useState(null);
   const [thumbnailError, setThumbnailError] = useState('');
+  const { addDocument } = useFirestore('projects');
+  const navigate = useNavigate();
 
   const handleFileChange = event => {
     setProjectThumbnail(null);
@@ -25,20 +29,26 @@ export default function AddProject() {
         setThumbnailError('Selected file must be an image');
         return;
     };
-    if (selectedImg.size > 100000){
-        setThumbnailError('Image file size must be less than 100kb');
+    if (selectedImg.size > 500000){
+        setThumbnailError('Image file size must be less than 500kb');
         return;
     };
 
     setThumbnailError(null);
     setProjectThumbnail(selectedImg);
-    console.log('Thumbnail updated')
+    console.log('Thumbnail updated');
 };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // await login(email, password);
-    // navigate('/');
+    await addDocument({
+      projectName,
+      description,
+      siteLink,
+      repoLink,
+      projectThumbnail
+    });
+    navigate('/');
 };
 
   return (
@@ -57,12 +67,10 @@ export default function AddProject() {
         onChange={event => setRepoLink(event.target.value)}
         />
         <InputLabel>Upload your project thumbnail:</InputLabel>
-        <Input type='file' variant='outlined' required={true} value={projectThumbnail}  accept="image/*"
-          onChange={handleFileChange} 
-        />
+        <Input type='file' required={true} onChange={handleFileChange} />
         {thumbnailError && <div className='error'>{thumbnailError}</div>}
         {/* {<Button variant="outlined" type='submit' disabled>Logging in...</Button>} */}
-        {<Button variant="outlined" type='submit'>Log in</Button>}
+        {<Button variant="outlined" type='submit'>Add Project</Button>}
         {/* {error && <p>{error}</p>} */}
     </Box>
   )
