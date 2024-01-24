@@ -14,7 +14,6 @@ export default function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         signup(email, password);
-        console.log('Signing up...');
         navigate('/');
     };
 
