@@ -19,7 +19,6 @@ export default function AddProject() {
   const handleFileChange = event => {
     setProjectThumbnail(null);
     let selectedImg = event.target.files[0];
-    console.log(selectedImg);
 
     if (!selectedImg){
         setThumbnailError('Please select a file');
@@ -36,7 +35,6 @@ export default function AddProject() {
 
     setThumbnailError(null);
     setProjectThumbnail(selectedImg);
-    console.log('Thumbnail updated');
 };
 
   const handleSubmit = async (event) => {
@@ -69,9 +67,7 @@ export default function AddProject() {
         <InputLabel>Upload your project thumbnail:</InputLabel>
         <Input type='file' required={true} onChange={handleFileChange} />
         {thumbnailError && <div className='error'>{thumbnailError}</div>}
-        {/* {<Button variant="outlined" type='submit' disabled>Logging in...</Button>} */}
         {<Button variant="outlined" type='submit'>Add Project</Button>}
-        {/* {error && <p>{error}</p>} */}
     </Box>
   )
 };
