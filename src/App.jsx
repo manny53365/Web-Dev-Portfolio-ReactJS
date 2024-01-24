@@ -1,6 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import AddExperience from './components/AddExperience';
+import AddProject from './components/AddProject';
 
 import Home from './pages/home/Home';
 import About from './pages/about/About';
@@ -23,6 +25,8 @@ function App() {
           <Route path='/projects' element={<Projects/>}/>
           <Route path='/login' element={<Login/>}/>
           <Route path='/signup' element={<Signup />}/>
+          <Route path='/addproject' element={<AddProject />}/>
+          <Route path='/addexperience' element={<AddExperience />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
