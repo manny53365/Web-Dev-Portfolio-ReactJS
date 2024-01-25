@@ -42,17 +42,26 @@ export const useFirestore = (dbCollection) => {
   const addDocument = async (doc) => {
     dispatch({ type: 'IS_PENDING' });
 
-    try {
-      // const createdAt = timestamp.fromDate(new Date());
-      const uploadPath = `thumbnails/${doc.projectName}/${doc.projectThumbnail.name}`;
-      const img = imgRef(storage, uploadPath);
-      await uploadBytes(img, doc.projectThumbnail);
-      const imgURL = await getDownloadURL(img);
-      const addedDocument = await addDoc(ref,{ ...doc, projectThumbnail: imgURL });
-      dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
-    }
-    catch (err) {
-      dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
+    if (dbCollection === 'experience'){
+      try {
+        const addedDocument = await addDoc(ref, doc);
+        dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
+      } catch (err){
+        dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
+      }
+
+    } else {
+      try {
+        const uploadPath = `thumbnails/${doc.projectName}/${doc.projectThumbnail.name}`;
+        const img = imgRef(storage, uploadPath);
+        await uploadBytes(img, doc.projectThumbnail);
+        const imgURL = await getDownloadURL(img);
+        const addedDocument = await addDoc(ref,{ ...doc, projectThumbnail: imgURL });
+        dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
+      }
+      catch (err) {
+        dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
+      };
     };
   };
 
