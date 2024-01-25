@@ -1,6 +1,6 @@
 import ProjectCard from '../../components/ProjectCard';
-import styles from './Projects.module.css';
 import { useCollection } from '../../hooks/useCollection';
+import styles from './Projects.module.css';
 
 export default function Projects() {
 
