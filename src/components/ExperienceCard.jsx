@@ -4,7 +4,7 @@ import styles from './ExperienceCard.module.css';
 
 export default function ExperienceCard({ props }) {
   return (
-    <Card className={styles.experience}>
+    <Card className={styles.experience} elevation={10}>
       <CardContent>
         <Typography gutterBottom variant='h5' component='div'>
             {`${props.role} at ${props.companyName}`}

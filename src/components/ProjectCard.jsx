@@ -4,7 +4,7 @@ import styles from './ProjectCard.module.css';
 
 export default function ProjectCard({ props }) {
   return (
-    <Card className={styles.project}>
+    <Card className={styles.project} elevation={10}>
       <CardMedia component="img" alt='Project Thumbnail' height="140" image={props.projectThumbnail} />
       <CardContent>
         <Typography gutterBottom variant='h5' component='div'>
