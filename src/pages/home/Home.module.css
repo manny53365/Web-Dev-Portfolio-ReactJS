@@ -12,6 +12,11 @@
     flex: inherit;
 }
 
+.profile-image {
+    height: 200px;
+    border-radius: 100%;
+}
+
 .cursive {
     font-size: 5.625rem;
     font-family: 'Sacramento', cursive;
