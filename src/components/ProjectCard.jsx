@@ -8,7 +8,7 @@ export default function ProjectCard({ props }) {
       <CardMedia component="img" alt='Project Thumbnail' height="140" image={props.projectThumbnail} />
       <CardContent>
         <Typography gutterBottom variant='h5' component='div'>
-            {props.name}
+            {props.projectName}
         </Typography>
         <Typography variant='body2' color='text.secondary'>
             {props.description}

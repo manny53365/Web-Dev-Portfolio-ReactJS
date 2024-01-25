@@ -4,7 +4,7 @@ import styles from './Projects.module.css';
 
 export default function Projects() {
 
-  const { documents, error } = useCollection('projects');
+  const { documents, error } = useCollection('projects', ['createdAt', 'desc']);
 
   return (
     <div className={styles['projects-container']}>

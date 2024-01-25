@@ -1,6 +1,6 @@
 import { useReducer, useEffect, useState } from "react";
 import { db, storage } from "../firebase/config";
-import { collection, addDoc } from 'firebase/firestore';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
 import  {ref  as imgRef, uploadBytes, getDownloadURL} from 'firebase/storage';
 
 let initialState = {
@@ -44,7 +44,7 @@ export const useFirestore = (dbCollection) => {
 
     if (dbCollection === 'experience'){
       try {
-        const addedDocument = await addDoc(ref, doc);
+        const addedDocument = await addDoc(ref, {...doc, createdAt: serverTimestamp()});
         dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
       } catch (err){
         dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
@@ -56,7 +56,7 @@ export const useFirestore = (dbCollection) => {
         const img = imgRef(storage, uploadPath);
         await uploadBytes(img, doc.projectThumbnail);
         const imgURL = await getDownloadURL(img);
-        const addedDocument = await addDoc(ref,{ ...doc, projectThumbnail: imgURL });
+        const addedDocument = await addDoc(ref,{ ...doc, projectThumbnail: imgURL, createdAt: serverTimestamp() });
         dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
       }
       catch (err) {

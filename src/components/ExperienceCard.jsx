@@ -12,7 +12,7 @@ export default function ExperienceCard({ props }) {
         <Typography variant='body2' color='text.secondary'>
             {props.duration}
         </Typography>
-        <Typography variant='body1' color='text.secondary'>
+        <Typography variant='body2' color='text.secondary'>
             {props.duties}
         </Typography>
       </CardContent>

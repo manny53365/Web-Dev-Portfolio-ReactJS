@@ -4,7 +4,7 @@ import styles from './Experience.module.css';
 
 export default function Experience() {
 
-  const { documents, error } = useCollection('experience');
+  const { documents, error } = useCollection('experience', ['createdAt', 'desc']);
 
   return (
     <div className={styles['experience-container']}>
