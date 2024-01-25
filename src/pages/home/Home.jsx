@@ -4,8 +4,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
         <div className={styles.intro}>
-            <h1>I'm Manny</h1>
-            <h2>A full stack developer from Florida</h2>
+            <h1 className={styles.cursive}>I'm Manny</h1>
+            <h2 className={styles['intro-role']}>A full stack developer from Florida</h2>
         </div>
         <div className={styles.intro}>
             <h2>Intro</h2>
