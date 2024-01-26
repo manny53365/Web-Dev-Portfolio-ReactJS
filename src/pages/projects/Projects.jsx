@@ -8,7 +8,7 @@ export default function Projects() {
 
   return (
     <div className={styles['projects-container']}>
-        {!documents && <p>Loading projects...</p>}
+        {!documents && <p className={styles.loading}>Loading projects...</p>}
         {documents && documents.map(project => (
           <ProjectCard key={project.id} props={project}/>
         ))}

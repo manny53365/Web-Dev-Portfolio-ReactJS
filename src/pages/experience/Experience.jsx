@@ -8,7 +8,7 @@ export default function Experience() {
 
   return (
     <div className={styles['experience-container']}>
-      {!documents && <p>Loading work experience...</p>}
+      {!documents && <p className={styles.loading}>Loading work experience...</p>}
       {documents && documents.map(job => (
         <ExperienceCard key={job.id} props={job} /> 
       ))}
