@@ -50,6 +50,18 @@ export const useFirestore = (dbCollection) => {
         dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
       }
 
+    } else if (dbCollection === 'skills') {
+      try {
+        const uploadPath = `skill-logos/${doc.skillName}/${doc.skillIcon.name}`;
+        const img = imgRef(storage, uploadPath);
+        await uploadBytes(img, doc.skillIcon);
+        const imgURL = await getDownloadURL(img);
+        const addedDocument = await addDoc(ref, {...doc, skillIcon: imgURL, createdAt: serverTimestamp()});
+        dispatchIfNotCancelled({ type: 'ADDED_DOCUMENT', payload: addedDocument });
+
+      } catch (err) {
+        dispatchIfNotCancelled({ type: 'ERROR', payload: err.message });
+      }
     } else {
       try {
         const uploadPath = `thumbnails/${doc.projectName}/${doc.projectThumbnail.name}`;
