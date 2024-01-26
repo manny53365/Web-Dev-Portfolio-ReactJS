@@ -10,7 +10,7 @@ export default function Experience() {
   return (
     <div className={styles['experience-container']}>
       {!documents && <div className={styles['loading-container']}>
-        <CircularProgress  className={styles['loading-spinner']}/>
+        <CircularProgress className={styles['loading-spinner']}/>
         <p className={styles.loading}>Loading work experience...</p>
       </div>}
       {documents && documents.map(job => (
