@@ -1,0 +1,12 @@
+#skill-list {
+    display: inherit;
+    flex-direction: inherit;
+    width: 100%;
+    max-width: 20%;
+    margin: 1% auto 5%;
+    background-color: 'background.paper';
+}
+
+.skill {
+    text-align: center;
+}

@@ -10,6 +10,7 @@ import Login from './pages/login/Login';
 // import Signup from './pages/signup/Signup';
 import AddExperience from './pages/experience/AddExperience';
 import AddProject from './pages/projects/AddProject';
+import AddSkill from './pages/about/AddSkill';
 
 import './App.css';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path='/projects' element={<Projects/>}/>
           <Route path='/login' element={<Login/>}/>
           {/* <Route path='/signup' element={<Signup />}/> */}
+          <Route path='/addskill' element={<AddSkill />}/>
           <Route path='/addproject' element={<AddProject />}/>
           <Route path='/addexperience' element={<AddExperience />}/>
         </Routes>
