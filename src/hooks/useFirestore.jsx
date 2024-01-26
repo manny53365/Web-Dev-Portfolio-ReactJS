@@ -1,7 +1,7 @@
 import { useReducer, useEffect, useState } from "react";
 import { db, storage } from "../firebase/config";
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
-import  {ref  as imgRef, uploadBytes, getDownloadURL} from 'firebase/storage';
+import { collection, addDoc, serverTimestamp, deleteDoc, doc } from 'firebase/firestore';
+import  {ref  as imgRef, uploadBytes, getDownloadURL, deleteObject} from 'firebase/storage';
 
 let initialState = {
   document: null,
@@ -77,11 +77,19 @@ export const useFirestore = (dbCollection) => {
     };
   };
 
-  const deleteDocument = async (id) => {
+  const deleteDocument = async (id, imgURL) => {
     dispatch({ type: 'IS_PENDING' });
 
     try {
-      await ref.doc(id).delete();
+
+      const docRef = doc(db, dbCollection, id);
+      await deleteDoc(docRef);
+
+      if (imgURL) {
+        const imageRef = imgRef(storage, imgURL);
+        await deleteObject(imageRef);
+      };
+
       dispatchIfNotCancelled({ type: 'DELETED_DOCUMENT' });
     }
     catch (err) {
