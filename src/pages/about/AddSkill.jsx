@@ -40,7 +40,7 @@ export default function AddSkill() {
           skillName,
           skillIcon
         });
-        navigate('/about');
+        navigate('/skills');
     };
 
 
