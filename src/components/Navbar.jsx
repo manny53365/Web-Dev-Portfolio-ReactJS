@@ -26,9 +26,10 @@ export default function Navbar() {
     <div>
         <div className={styles.navbar}>
             <Link className={isActive('/') ? `${styles.active} ${styles.links}` : styles.links} to='/'>Home</Link>
-            <Link className={isActive('/about') ? `${styles.active} ${styles.links}` : styles.links} to='/about'>About</Link>
+            <Link className={isActive('/skills') ? `${styles.active} ${styles.links}` : styles.links} to='/skills'>Skills</Link>
             <Link className={isActive('/experience') ?  `${styles.active} ${styles.links}` : styles.links} to='/experience'>Work Experience</Link>
             <Link className={isActive('/projects') ? `${styles.active} ${styles.links}` : styles.links} to='/projects'>Projects</Link>
+            {user && <Link className={isActive('/addskill') ? `${styles.active} ${styles.links}` : styles.links} to='/addskill'>Add Skill</Link>}
             {user && <Link className={isActive('/addproject') ? `${styles.active} ${styles.links}` : styles.links} to='/addproject'>Add Project</Link>}
             {user && <Link className={isActive('/addexperience') ? `${styles.active} ${styles.links}` : styles.links} to='/addexperience'>Add Experience</Link>}
             {user && isPending && <Button variant="outlined" type='submit' onClick={handleLogout} disabled>Logging out...</Button>}

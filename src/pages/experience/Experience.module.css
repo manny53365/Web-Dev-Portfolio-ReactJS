@@ -8,8 +8,19 @@
     background-color: #00b894;
 }
 
+.loading-container {
+    display: inherit;
+    flex-direction: column;
+    gap: inherit;
+    margin: 25%;
+}
+
 .loading {
     text-align: center;
-    margin: 25%;
     font-size: 2rem;
+}
+
+.loading-spinner {
+    margin: 25% auto 0;
+    text-align: center;
 }

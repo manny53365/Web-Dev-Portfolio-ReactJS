@@ -3,13 +3,14 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 import Home from './pages/home/Home';
-import About from './pages/about/About';
+import Skills from './pages/about/Skills';
 import Experience from './pages/experience/Experience';
 import Projects from './pages/projects/Projects';
 import Login from './pages/login/Login';
 // import Signup from './pages/signup/Signup';
 import AddExperience from './pages/experience/AddExperience';
 import AddProject from './pages/projects/AddProject';
+import AddSkill from './pages/about/AddSkill';
 
 import './App.css';
 
@@ -20,11 +21,12 @@ function App() {
         <Navbar/>
         <Routes>
           <Route path='/' element={<Home />}/>
-          <Route path='/about' element={<About/>}/>
+          <Route path='/skills' element={<Skills/>}/>
           <Route path='/experience' element={<Experience/>}/>
           <Route path='/projects' element={<Projects/>}/>
           <Route path='/login' element={<Login/>}/>
           {/* <Route path='/signup' element={<Signup />}/> */}
+          <Route path='/addskill' element={<AddSkill />}/>
           <Route path='/addproject' element={<AddProject />}/>
           <Route path='/addexperience' element={<AddExperience />}/>
         </Routes>
