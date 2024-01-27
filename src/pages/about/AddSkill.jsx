@@ -46,7 +46,7 @@ export default function AddSkill() {
 
   return (
     <Box onSubmit={handleSubmit} className={styles['add-skill-form']} component="form" sx={{'& > :not(style)': { m: 1, width: '25ch' },}} noValidate autoComplete="off">
-        <h2>Add work experience - Admin Panel</h2>
+        <h2>Add Skill - Admin Panel</h2>
         <TextField label="Skill" variant="outlined" type='text' required={true} value={skillName} 
         onChange={event => setSkillName(event.target.value)}
         />

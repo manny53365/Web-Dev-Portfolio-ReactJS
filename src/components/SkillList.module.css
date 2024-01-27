@@ -1,12 +1,13 @@
 #skill-list {
-    display: inherit;
-    flex-direction: inherit;
-    width: 100%;
-    max-width: 20%;
+    display: flex;
+    flex-wrap: wrap;
     margin: 1% auto 5%;
     background-color: 'background.paper';
 }
 
-.skill {
+#skill {
+    display: flex;
+    flex-direction: row;
+    width: 20%;
     text-align: center;
 }
