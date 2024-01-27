@@ -1,8 +1,8 @@
 import SkillList from '../../components/SkillList';
 import { useCollection } from '../../hooks/useCollection';
-import styles from './About.module.css';
+import styles from './Skills.module.css';
 
-export default function About() {
+export default function Skills() {
 
   const { documents, error } = useCollection('skills');
 
