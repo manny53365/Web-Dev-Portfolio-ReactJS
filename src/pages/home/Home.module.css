@@ -34,7 +34,24 @@
     padding-bottom: 20px;
 }
 
-.test {
-    flex: inherit;
-    padding: 10px;
+@media only screen and (max-width: 767px) {
+
+    .profile-image {
+        height: 100px;
+    }
+
+    .cursive {
+        font-size: 4.25rem;
+    }
+
+    .intro-role {
+        font-size: 2rem;
+        width: 80%;
+        margin: 10px auto;
+    }
+
+    .intro-text {
+        width: 80%;
+        line-height: 1.75;
+    }
 }
