@@ -6,3 +6,15 @@
     background-color: #00b894;
     text-align: center;
 }
+
+.skills-container {
+    display: inherit;
+    flex-direction: inherit;
+    margin: 10% auto;
+}
+
+.loading {
+    text-align: center;
+    margin: 25%;
+    font-size: 2rem;
+}

@@ -8,10 +8,12 @@ export default function About() {
 
   return (
     <div className={styles['about-container']}>
-      <h2>About me</h2>
-      {documents && <SkillList skills={documents}/>}
-      {error && <p>{error}</p>}
-      <h3>Test</h3>
+      {!documents && <p className={styles.loading}>Loading skills...</p> }
+      <div className={styles['skills-container']}>
+        {documents && <h1>My Skills</h1>}
+        {documents && <SkillList skills={documents}/>}
+        {error && <p>{error}</p>}
+      </div>
     </div>
   )
 };

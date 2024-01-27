@@ -10,7 +10,6 @@ export default function SkillList({ skills }) {
     const { deleteDocument, response } = useFirestore('skills');
 
     const handleDelete = (skillID, skillLogo) => {
-      console.log(`Deleteing skill with id: ${skillID} and logo ${skillLogo}`);
       deleteDocument(skillID, skillLogo);
     };
 
