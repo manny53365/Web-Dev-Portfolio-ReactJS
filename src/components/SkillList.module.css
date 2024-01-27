@@ -11,3 +11,24 @@
     width: 20%;
     text-align: center;
 }
+
+@media only screen and (max-width: 767px) {
+    #skill {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        text-align: center;
+        margin: auto;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    #skill {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 40%;
+        text-align: center;
+        margin: auto;
+    }
+}
