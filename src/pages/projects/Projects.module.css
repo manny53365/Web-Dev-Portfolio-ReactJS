@@ -24,3 +24,19 @@
     margin: 25% auto 0;
     text-align: center;
 }
+
+/* mobile screen styles */
+
+@media only screen and (max-width: 767px) {
+    .loading-container {
+        margin: 65% auto;
+    }
+}
+
+/* tablet screens styling */
+
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    .loading-container {
+        margin: 50% auto;
+    }
+}
