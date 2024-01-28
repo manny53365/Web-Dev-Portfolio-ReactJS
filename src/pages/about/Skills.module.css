@@ -30,6 +30,10 @@
         width: 100%;
     }
 
+    .skills-container ul li {
+        padding: 2px;
+    }
+
     .loading {
         margin: auto;
     }
