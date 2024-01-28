@@ -7,6 +7,18 @@
     text-align: center;
 }
 
+.loading-container {
+    display: inherit;
+    flex-direction: column;
+    gap: inherit;
+    margin: 25%;
+}
+
+.loading-spinner {
+    margin: 25% auto 0;
+    text-align: center;
+}
+
 .skills-container {
     display: inherit;
     flex-direction: inherit;
@@ -30,6 +42,14 @@
         width: 100%;
     }
 
+    .loading-container {
+        margin: 62% auto;
+    }
+
+    .skills-container ul li {
+        padding: 2px;
+    }
+
     .loading {
         margin: auto;
     }
@@ -40,5 +60,9 @@
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
     .skills-container h1 {
         padding-bottom: 30px;
+    }
+
+    .loading-container {
+        margin: 55% auto;
     }
 }
