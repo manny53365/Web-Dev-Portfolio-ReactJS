@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
+import { useAuthContext } from './hooks/useAuthContext';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
@@ -15,6 +16,9 @@ import AddSkill from './pages/skills/AddSkill';
 import './App.css';
 
 function App() {
+
+  const { user } = useAuthContext();
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -26,9 +30,9 @@ function App() {
           <Route path='/projects' element={<Projects/>}/>
           <Route path='/login' element={<Login/>}/>
           {/* <Route path='/signup' element={<Signup />}/> */}
-          <Route path='/addskill' element={<AddSkill />}/>
-          <Route path='/addproject' element={<AddProject />}/>
-          <Route path='/addexperience' element={<AddExperience />}/>
+          <Route path='/addskill' element={user ? <AddSkill /> : <Navigate to='/' />}/>
+          <Route path='/addproject' element={user ? <AddProject /> : <Navigate to='/' />}/>
+          <Route path='/addexperience' element={user ? <AddExperience /> : <Navigate to='/' />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
