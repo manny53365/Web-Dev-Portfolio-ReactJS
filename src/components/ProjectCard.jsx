@@ -15,8 +15,8 @@ export default function ProjectCard({ props }) {
         </Typography>
       </CardContent>
       <CardActions>
-        {props.siteLink !== '' && <Button size='small' href={props.siteLink} rel='noopener noreferrer'>Link to {props.name} site</Button>}
-        {props.repoLink !== '' && <Button size='small' href={props.repoLink} rel='noopener noreferrer'>Link to {props.name} github repo</Button>}
+        {props.siteLink !== '' && <Button size='small' href={props.siteLink} rel='noopener noreferrer' target='_blank'>Link to {props.name} site</Button>}
+        {props.repoLink !== '' && <Button size='small' href={props.repoLink} rel='noopener noreferrer' target='_blank'>Link to {props.name} github repo</Button>}
       </CardActions>
     </Card>
   )
