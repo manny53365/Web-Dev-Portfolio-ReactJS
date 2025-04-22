@@ -8,7 +8,7 @@ export default function Home() {
             <h2 className={styles['intro-role']}>A full stack developer from Florida</h2>
         </div>
         <div className={styles.intro}>
-          <img className={styles['profile-image']} src='https://firebasestorage.googleapis.com/v0/b/web-dev-portfolio-6b1e9.appspot.com/o/photos%2FManuel_Rodriguez.png?alt=media&token=492b6b56-b0a4-41d3-8834-782d7eda08bd' alt="author" />
+          <img className={styles['profile-image']} src='https://firebasestorage.googleapis.com/v0/b/web-dev-portfolio-6b1e9.appspot.com/o/photos%2FManuelR-SpringHeadshot.jpg?alt=media&token=39b99e6a-25da-4850-857d-ba008565178e' alt="author" />
             <h2>Intro</h2>
             {/* <p className={styles['intro-text']}>
             Experienced Software Engineer with a proven track record in developing, maintaining, and enhancing robust applications.
